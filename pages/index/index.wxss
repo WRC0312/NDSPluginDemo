@@ -1,0 +1,8 @@
+
+.content {
+  margin: 20rpx;
+  font-size: 14px;
+  padding: 40rpx;
+  max-width: 100%;
+  word-wrap: break-word;
+}
