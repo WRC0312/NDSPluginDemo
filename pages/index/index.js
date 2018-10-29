@@ -9,54 +9,67 @@ Page({
     var channel = 'fiqs_wx';
     var serverUrl = "https://ft-gw.jdpay.com/fiqs";
     plugin.setConfig(serverUrl, channel);
-    plugin.getUrl(testUrl, function (newUrl) {
+
+    plugin.getUrl({
+      url: testUrl, success:function (newUrl) {
       that.setData({
         urlSrc: newUrl
       });
-    });
-    //   var channel = 'fiqs_wx';
-    //   var serverUrl = "https://ft-gw.jdpay.com/fiqs/";
-    //   var par = { userName: "123456", userPwd:"test1"};
-    //   var requestHeader ={
-    //     "content-type": "application/json"
-    //   } ;
-    //   var url = "https://ft-gw.jdpay.com/fiqs/login/login.do";
+      }, fail:function(error){
+      console.dir(error);
+    }});
+//     var channel = 'fiqs_wx';
+//     var serverUrl = "https://ft-gw.jdpay.com/fiqs/";
+//     plugin.setUpConfig(channel, serverUrl);
+//     var par = { userName: "123456", userPwd:"test1"};
+//     var requestHeader ={
+//       "content-type": "application/json"
+//     } ;
+//     var url = "https://ft-gw.jdpay.com/fiqs/login/login.do";
 
-    //   plugin.setUpConfig(channel, serverUrl);
-    //   plugin.encodeParams(par, dataEntity => {
-    //     if (dataEntity.resultType == 1) {
-    //       wx.request({
-    //         url: url,
-    //         header: requestHeader,
-    //         data: dataEntity.requestParam,
-    //         method: "post",
-    //         success: function (res) {
-    //           if (res.statusCode == 200) {
-    //             plugin.decodeParams(res, dataEntity => {
-    //               var data = dataEntity.response;
-    //               wx.showToast({
-    //                 title: "请求数据成功",
-    //               })
-    //               console.log("======="+JSON.stringify(data));
-    //             })
-    //           } else {
-    //             wx.showToast({
-    //               title: "网络错误,请稍后重试!",
-    //             })
-    //           }
-    //         },
-    //         fail: function (error) {
-    //           wx.showToast({
-    //             title: "网络错误,请稍后重试!",
-    //           });
-    //         },
+//     plugin.encodeParams({
+//       params: par, success:function(dataEntity) {
+//       if (dataEntity.resultType == 1) {
+//         wx.request({
+//           url: url,
+//           header: requestHeader,
+//           data: dataEntity.requestParam,
+//           method: "post",
+//           success: function (res) {
+//             if (res.statusCode == 200) {
+//               plugin.decodeParams({
+//                 params: res, success: function (dataEntity){
+//                 var data = dataEntity.response;
+//                 wx.showToast({
+//                   title: "请求数据成功",
+//                 })
+//                 console.log("======="+JSON.stringify(data));
+//               },fail:function(error){
 
-    //       });
-    //     } else {
-    //       wx.showToast({
-    //         title: "网络错误,请稍后重试!",
-    //       });
-    //     }
-    //   });
+//               }})
+//             } else {
+//               wx.showToast({
+//                 title: "网络错误,请稍后重试!",
+//               })
+//             }
+//           },
+//           fail: function (error) {
+//             wx.showToast({
+//               title: "网络错误,请稍后重试!",
+//             });
+//           },
+
+//         });
+//       } else {
+//         wx.showToast({
+//           title: "网络错误,请稍后重试!",
+//         });
+//       }
+//     },
+//       fail:function(error){
+// console.dir(error);
+//       }
+    
+//     });
   }
 })
