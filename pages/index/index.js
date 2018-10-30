@@ -1,18 +1,30 @@
 var plugin = requirePlugin("networkSafePlugin")
 Page({
   data: {
-    urlSrc: ""
+    urlSrc: "",
+    message:"",
+    string1:"",
+    string2:"",
+    string3:"",
+    string4:""
   },
   onLoad: function () {
     var key = "1111";
     var message = "hello world";
-    var testString = plugin.DES3encrypt(key, message);
-    var string2 = plugin.DES3decrypt(key, testString);
+    var string1 = plugin.DES3encrypt(key, message);
+    var string2 = plugin.DES3decrypt(key, string1);
     console.log("string2:" + string2)
     var string3 = plugin.HMACsignature(message);
     var string4 = plugin.BASE64encrypt(message);
     console.log("hmac:"+string3);
     console.log("base64:"+string4);
+    this.setData({
+      message: message,
+      string1: string1,
+      string2: string2,
+      string3: string3,
+      string4: string4
+    })
     // var testUrl = "https://ft-gw.jdpay.com/fiqs-gw/detail/charts.html?compCode=80029463&compName=%25E4%25B8%25AD%25E5%259B%25BD%25E9%25BB%2584%25E9%2587%2591%25E9%259B%2586%25E5%259B%25A2%25E6%259C%2589%25E9%2599%2590%25E5%2585%25AC%25E5%258F%25B8&userName=test&auth=50F8C7DBA79DDC40911BFA08BC24842D";
     // var that = this;
   

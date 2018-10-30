@@ -1,2 +1,10 @@
-<!--index.wxml-->
-<view  class='content'><text>{{urlSrc}}</text> </view>
+<div style="font-size:30rpx">
+<!-- <view  class='content'><text>{{urlSrc}}</text> </view> -->
+原字符串: <view>{{message}}</view>
+DES3encrypt加密后: <view>  {{string2}}</view>
+DES3decrypt解密后: <view> {{string2}}</view>
+
+HMACsignature加密后:<view class='content'>{{string3}}</view>
+BASE64encrypt加密后:<view> {{string4}}</view>
+
+</div>

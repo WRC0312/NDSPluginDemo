@@ -1,8 +1,9 @@
+/* pages/index/index.wxss */
 
 .content {
-  margin: 20rpx;
+  margin: 0rpx;
   font-size: 14px;
-  padding: 40rpx;
+  padding: 0rpx;
   max-width: 100%;
   word-wrap: break-word;
 }
